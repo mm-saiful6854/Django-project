@@ -13,5 +13,9 @@ Some projects are used to learn django framework
                'HOST': 'localhost'
               }
           }
+  ## 2.1 some basic setup
+         pip install psycopg2
+         
+         this package is the adapter of postgresql to connected with application
   ## 3. create class inhereted models.Model 
          For example: 
