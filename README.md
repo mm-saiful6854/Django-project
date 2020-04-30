@@ -1,6 +1,22 @@
 # Django-project
 Some projects are used to learn django framework
 
+# Handling static files in django:
+   ### Add three lines in project setting file
+        STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+        STATIC_URL = '/static/'
+        STATICFILES_DIRS =[
+    os.path.join(BASE_DIR,'btre/static')
+]
+
+  ### then run this command 
+       python manage.py collectstatic
+       
+After this command, all static files located on btre/static are stored in root folder named assets.
+
+
+
+
 # Django Database setup, postgresql:
   ### 1. create database in pgadmin panel
   ### 2. connect application with that created database
