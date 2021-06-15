@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+# Django-project
+Some projects are used to learn django framework
 
-You can use the [editor on GitHub](https://github.com/mm-saiful6854/Django-project/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+# Handling static files in django:
+   ### Add three lines in project setting file
+        STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+        STATIC_URL = '/static/'
+        STATICFILES_DIRS =[
+    os.path.join(BASE_DIR,'btre/static')
+]
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  ### then run this command 
+       python manage.py collectstatic
+       
+After this command, all static files located on btre/static are stored in root folder named assets.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mm-saiful6854/Django-project/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+# Django Database setup, postgresql:
+  ### 1. create database in pgadmin panel
+  ### 2. connect application with that created database
+          DATABASES = {
+            'default': {
+              'ENGINE': 'django.db.backends.postgresql',
+               'NAME': 'EcDB',
+               'USER': 'postgres',
+               'PASSWORD': '',
+               'HOST': 'localhost'
+              }
+          }
+  #### 2.1 some basic setup
+         pip install psycopg2
+         
+         this package is the adapter of postgresql to connected with application
+  ### 3. create class inhereted models.Model 
+         For example: 
+  ### 4. create migration file
+         pip install pillow
+         python manage.py makemigrations
+  ### 5. sqlmigrate to database
+         python manage.py sqlmigrate [appname] version(e.g. 0001)
+  ### 6. migrate to database
+         python manage.py migrate
